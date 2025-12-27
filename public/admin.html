@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Font Vote - Админ</title>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <header>
+            <div class="brand">
+                <h1>Font Vote</h1>
+                <span class="badge">Admin Console</span>
+            </div>
+            <nav class="nav">
+                <a href="/">Справочник</a>
+                <a href="/journal.html">Журнал</a>
+                <a class="active" href="/admin.html">Админ</a>
+                <button id="loginBtn" class="ghost">Войти через GitHub</button>
+                <span id="userBadge" class="notice"></span>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="panel" id="adminGate">
+                <div class="hero">
+                    <h2>Админ-доступ требуется</h2>
+                    <p>
+                        Войдите через GitHub. Доступ есть только у логинов из
+                        allowlist.
+                    </p>
+                </div>
+            </section>
+
+            <section class="panel" id="adminPanel" hidden>
+                <div class="hero">
+                    <h2>Управление справочником</h2>
+                    <p>
+                        Добавляйте новые semantic, обновляйте icon и удаляйте
+                        строки.
+                    </p>
+                </div>
+                <div class="controls">
+                    <div>
+                        <label for="newSemantic">semantic (new)</label>
+                        <input
+                            id="newSemantic"
+                            type="text"
+                            placeholder="button.play"
+                        />
+                    </div>
+                    <div>
+                        <label for="newIcon">icon</label>
+                        <input id="newIcon" type="text" placeholder="icon" />
+                    </div>
+                    <div>
+                        <label>&nbsp;</label>
+                        <button id="addBtn">Добавить</button>
+                    </div>
+                </div>
+                <div class="notice" id="collectionCount"></div>
+                <table class="table" id="adminCollectionTable">
+                    <thead>
+                        <tr>
+                            <th>semantic</th>
+                            <th>icon</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section class="panel" id="adminJournal" hidden>
+                <div class="hero">
+                    <h2>Применить предложение из журнала</h2>
+                    <p>
+                        Apply обновляет Collection1, отмечает запись
+                        applied=true и создает новую запись журнала от имени
+                        админа.
+                    </p>
+                </div>
+                <div class="controls">
+                    <div>
+                        <label for="journalFilter">Фильтр semantic</label>
+                        <input
+                            id="journalFilter"
+                            type="search"
+                            placeholder="button.play"
+                        />
+                    </div>
+                    <div>
+                        <label for="journalOrder">Порядок</label>
+                        <select id="journalOrder">
+                            <option value="desc">desc</option>
+                            <option value="asc">asc</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="notice" id="journalCount"></div>
+                <table class="table" id="adminJournalTable">
+                    <thead>
+                        <tr>
+                            <th>created</th>
+                            <th>semantic</th>
+                            <th>icon</th>
+                            <th>user</th>
+                            <th>applied</th>
+                            <th>apply</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            Удаление не логируется, остальные действия пишутся в журнал.
+        </footer>
+
+        <script src="/admin.js" type="module"></script>
+    </body>
+</html>

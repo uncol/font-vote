@@ -1,0 +1,8 @@
+name = "font-vote"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "font-vote"
+database_id = "27b641ab-5513-49a5-84b7-c3c5a4e4ff90"
