@@ -85,3 +85,4 @@ wrangler pages deploy public --project-name font-vote
 ```
 wrangler pages dev public
 ```
+http://localhost:8788

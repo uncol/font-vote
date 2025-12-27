@@ -58,9 +58,13 @@ function renderTable(items) {
     `;
     const previewCell = row.querySelector("td:nth-child(2)");
     const cell = row.querySelector("td:last-child");
+    const iconWrapper = document.createElement("div");
+    iconWrapper.className = "icon-cell";
     const iconEl = document.createElement("i");
-    iconEl.className = `gf ${item.icon} gf-16px`;
-    previewCell.appendChild(iconEl);
+    const iconClass = item.icon.replace(/_/g, '-');
+    iconEl.className = `gf ${iconClass} gf-16px`;
+    iconWrapper.appendChild(iconEl);
+    previewCell.appendChild(iconWrapper);
     if (session.user) {
       const input = document.createElement("input");
       input.className = "inline-input";
