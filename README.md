@@ -63,8 +63,14 @@ wrangler d1 execute font-vote --file seed_collection1_from_input.sql --remote
 
 ### 7) Deploy
 
+Preview (main branch):
 ```
-wrangler pages deploy public --project-name font-vote
+wrangler pages deploy public --project-name font-vote --branch main
+```
+
+Production:
+```
+wrangler pages deploy public --project-name font-vote --branch production
 ```
 
 ## Endpoints
