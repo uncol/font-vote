@@ -184,6 +184,9 @@ button.ghost:hover {
   justify-content: center;
   color: #919191;
 }
+.icon-color {
+  color: #919191
+}
 
 .row-actions {
   display: flex;

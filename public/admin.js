@@ -270,7 +270,8 @@ function testGlyph() {
     testResult.innerHTML = "";
     return;
   }
-  testResult.innerHTML = `<i class="gufo ${icon}"></i> <span style="font-size: 14px; color: var(--muted);">${icon}</span>`;
+  const className = icon.replace(/_/g, "-");
+  testResult.innerHTML = `<i class="gf ${className} icon-color"></i> <span style="font-size: 14px; color: var(--muted);">${icon} → ${className}</span>`;
 }
 
 journalFilter.addEventListener("input", debouncedJournal);
