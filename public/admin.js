@@ -7,6 +7,7 @@ const adminJournal = document.getElementById("adminJournal");
 const newSemantic = document.getElementById("newSemantic");
 const newIcon = document.getElementById("newIcon");
 const addBtn = document.getElementById("addBtn");
+const exportBtn = document.getElementById("exportBtn");
 const collectionCount = document.getElementById("collectionCount");
 const collectionBody = document.querySelector("#adminCollectionTable tbody");
 
@@ -210,11 +211,60 @@ function debounce(fn, delay) {
   };
 }
 
+function exportTypeScript() {
+  const rows = Array.from(collectionBody.querySelectorAll("tr"));
+  const items = rows.map(row => {
+    const semantic = row.querySelector("td:nth-child(1)").textContent.trim();
+    const icon = row.querySelector("td:nth-child(2) input").value.trim();
+    return { semantic, icon };
+  }).filter(item => item.semantic && item.icon);
+
+  if (items.length === 0) {
+    alert("Нет данных для экспорта");
+    return;
+  }
+
+  const lines = items.map(item => 
+    `      /** @glyphName ${item.icon} */\n      readonly ${item.semantic}: string;`
+  );
+
+  const header = `/**
+ * NOC Semantic Glyph Type Definitions
+ * Provides IntelliSense/autocomplete for NOC.glyph.semantic in VSCode
+ * Augments the existing NOC global object defined in ui/web/js/boot.js
+ */
+
+interface NOC {
+  glyph: {
+    semantic: {
+`;
+
+  const footer = `    };
+    [key: string]: number | typeof NOC.glyph.semantic;
+  };
+}
+
+// eslint-disable-next-line no-var
+declare var NOC: NOC;
+`;
+
+  const content = header + lines.join("\n") + "\n" + footer;
+  
+  const blob = new Blob([content], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "export.d.ts";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 const debouncedJournal = debounce(loadJournal, 300);
 
 journalFilter.addEventListener("input", debouncedJournal);
 journalOrder.addEventListener("change", loadJournal);
 addBtn.addEventListener("click", addEntry);
+exportBtn.addEventListener("click", exportTypeScript);
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
 });
