@@ -8,6 +8,9 @@ const newSemantic = document.getElementById("newSemantic");
 const newIcon = document.getElementById("newIcon");
 const addBtn = document.getElementById("addBtn");
 const exportBtn = document.getElementById("exportBtn");
+const testIcon = document.getElementById("testIcon");
+const testBtn = document.getElementById("testBtn");
+const testResult = document.getElementById("testResult");
 const collectionCount = document.getElementById("collectionCount");
 const collectionBody = document.querySelector("#adminCollectionTable tbody");
 
@@ -261,10 +264,21 @@ declare var NOC: NOC;
 
 const debouncedJournal = debounce(loadJournal, 300);
 
+function testGlyph() {
+  const icon = testIcon.value.trim();
+  if (!icon) {
+    testResult.innerHTML = "";
+    return;
+  }
+  testResult.innerHTML = `<i class="gufo ${icon}"></i> <span style="font-size: 14px; color: var(--muted);">${icon}</span>`;
+}
+
 journalFilter.addEventListener("input", debouncedJournal);
 journalOrder.addEventListener("change", loadJournal);
 addBtn.addEventListener("click", addEntry);
 exportBtn.addEventListener("click", exportTypeScript);
+testBtn.addEventListener("click", testGlyph);
+testIcon.addEventListener("input", testGlyph);
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
 });
