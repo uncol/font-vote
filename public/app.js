@@ -7,6 +7,8 @@ const searchSemantic = document.getElementById("searchSemantic");
 const searchIcon = document.getElementById("searchIcon");
 const sortBy = document.getElementById("sortBy");
 const sortOrder = document.getElementById("sortOrder");
+const testIcon = document.getElementById("testIcon");
+const testResult = document.getElementById("testResult");
 
 let session = { user: null, isAdmin: false };
 
@@ -109,10 +111,21 @@ function debounce(fn, delay) {
   };
 }
 
+function testGlyph() {
+  const icon = testIcon.value.trim();
+  if (!icon) {
+    testResult.innerHTML = "";
+    return;
+  }
+  const className = icon.replace(/_/g, "-");
+  testResult.innerHTML = `<i class="gf ${className}"></i> <span style="font-size: 14px; color: var(--muted);">${icon} → ${className}</span>`;
+}
+
 const debouncedLoad = debounce(loadCollection, 300);
 
 [searchSemantic, searchIcon].forEach((input) => input.addEventListener("input", debouncedLoad));
 [sortBy, sortOrder].forEach((select) => select.addEventListener("change", loadCollection));
+testIcon.addEventListener("input", testGlyph);
 
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
