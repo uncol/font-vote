@@ -190,6 +190,15 @@ function filterAndRenderDropdown(query, inputElement) {
   selectedIndex = -1;
 }
 
+function updateDropdownPosition() {
+  if (activeAutocompleteInput && iconDropdown.classList.contains('show')) {
+    const rect = activeAutocompleteInput.getBoundingClientRect();
+    iconDropdown.style.top = `${rect.bottom}px`;
+    iconDropdown.style.left = `${rect.left}px`;
+    iconDropdown.style.width = `${rect.width}px`;
+  }
+}
+
 function selectDropdownItem(icon) {
   if (activeAutocompleteInput) {
     activeAutocompleteInput.value = icon;
@@ -285,6 +294,9 @@ document.addEventListener('click', (e) => {
     activeAutocompleteInput = null;
   }
 });
+
+window.addEventListener('scroll', updateDropdownPosition, true);
+window.addEventListener('resize', updateDropdownPosition);
 
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
