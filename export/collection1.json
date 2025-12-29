@@ -1,0 +1,420 @@
+[
+  {
+    "results": [
+      {
+        "semantic": "back_nav",
+        "icon": "arrow_left"
+      },
+      {
+        "semantic": "close_nav",
+        "icon": "xmark"
+      },
+      {
+        "semantic": "level_up_nav",
+        "icon": "chevrons_up"
+      },
+      {
+        "semantic": "level_down_nav",
+        "icon": "chevrons_down"
+      },
+      {
+        "semantic": "up_nav",
+        "icon": "arrow_up"
+      },
+      {
+        "semantic": "down_nav",
+        "icon": "arrow_down"
+      },
+      {
+        "semantic": "left_nav",
+        "icon": "arrow_left"
+      },
+      {
+        "semantic": "right_nav",
+        "icon": "arrow_right"
+      },
+      {
+        "semantic": "location_nav",
+        "icon": "location_arrow_s"
+      },
+      {
+        "semantic": "map_marker_nav",
+        "icon": "location_pin_s"
+      },
+      {
+        "semantic": "expand_nav",
+        "icon": "plus_small_s"
+      },
+      {
+        "semantic": "collapse_nav",
+        "icon": "minus_small_s"
+      },
+      {
+        "semantic": "toggle_panels_nav",
+        "icon": "bars_s"
+      },
+      {
+        "semantic": "save_action",
+        "icon": "floppy_disk_s"
+      },
+      {
+        "semantic": "apply_action",
+        "icon": "plus_s"
+      },
+      {
+        "semantic": "add_action",
+        "icon": "plus"
+      },
+      {
+        "semantic": "create_action",
+        "icon": "plus_s"
+      },
+      {
+        "semantic": "insert_action",
+        "icon": "plus_o"
+      },
+      {
+        "semantic": "append_action",
+        "icon": "arrow_down_s"
+      },
+      {
+        "semantic": "edit_action",
+        "icon": "pen_to_square_o"
+      },
+      {
+        "semantic": "clone_action",
+        "icon": "copy_s"
+      },
+      {
+        "semantic": "delete_action",
+        "icon": "xmark_s"
+      },
+      {
+        "semantic": "remove_action",
+        "icon": "minus"
+      },
+      {
+        "semantic": "remove_all_action",
+        "icon": "ban_o"
+      },
+      {
+        "semantic": "clear_action",
+        "icon": "eraser_s"
+      },
+      {
+        "semantic": "trash_action",
+        "icon": "trash_o"
+      },
+      {
+        "semantic": "cancel_action",
+        "icon": "xmark"
+      },
+      {
+        "semantic": "reset_action",
+        "icon": "rotate_s"
+      },
+      {
+        "semantic": "undo_action",
+        "icon": "rotate_left_s"
+      },
+      {
+        "semantic": "revert_action",
+        "icon": "recycle_o"
+      },
+      {
+        "semantic": "run_action",
+        "icon": "play"
+      },
+      {
+        "semantic": "execute_action",
+        "icon": "play_s"
+      },
+      {
+        "semantic": "generate_action",
+        "icon": "asterisk_s"
+      },
+      {
+        "semantic": "rebase_action",
+        "icon": "chevrons_right_s"
+      },
+      {
+        "semantic": "rotate_action",
+        "icon": "rotate_right_s"
+      },
+      {
+        "semantic": "new_layout_action",
+        "icon": "layer_group_s"
+      },
+      {
+        "semantic": "follow_action",
+        "icon": "bullseye_o"
+      },
+      {
+        "semantic": "allocate_action",
+        "icon": "plus_small_s"
+      },
+      {
+        "semantic": "select_all_action",
+        "icon": "check_s"
+      },
+      {
+        "semantic": "unselect_all_action",
+        "icon": "xmark_small_s"
+      },
+      {
+        "semantic": "add_to_basket_action",
+        "icon": "folder_s"
+      },
+      {
+        "semantic": "clean_basket_action",
+        "icon": "trash_s"
+      },
+      {
+        "semantic": "change_password_action",
+        "icon": "lock_s"
+      },
+      {
+        "semantic": "logout_action",
+        "icon": "power_off_s"
+      },
+      {
+        "semantic": "preview_view",
+        "icon": "eye_o"
+      },
+      {
+        "semantic": "card_view",
+        "icon": "rectangle_s"
+      },
+      {
+        "semantic": "json_view",
+        "icon": "file_o"
+      },
+      {
+        "semantic": "config_view",
+        "icon": "cog_s"
+      },
+      {
+        "semantic": "confdb_view",
+        "icon": "database_s"
+      },
+      {
+        "semantic": "mapping_view",
+        "icon": "layer_group_s"
+      },
+      {
+        "semantic": "effective_settings_view",
+        "icon": "cog_o"
+      },
+      {
+        "semantic": "tools_view",
+        "icon": "wrench_s"
+      },
+      {
+        "semantic": "settings_view",
+        "icon": "cog"
+      },
+      {
+        "semantic": "map_view",
+        "icon": "map_s"
+      },
+      {
+        "semantic": "topology_view",
+        "icon": "sitemap_s"
+      },
+      {
+        "semantic": "dashboard_view",
+        "icon": "house_s"
+      },
+      {
+        "semantic": "console_view",
+        "icon": "comment_s"
+      },
+      {
+        "semantic": "scripts_view",
+        "icon": "file_s"
+      },
+      {
+        "semantic": "interfaces_view",
+        "icon": "wifi_s"
+      },
+      {
+        "semantic": "sensors_view",
+        "icon": "bolt_s"
+      },
+      {
+        "semantic": "links_view",
+        "icon": "fiber_optics_o"
+      },
+      {
+        "semantic": "discovery_view",
+        "icon": "bullseye_o"
+      },
+      {
+        "semantic": "alarms_view",
+        "icon": "burst_s"
+      },
+      {
+        "semantic": "inventory_view",
+        "icon": "warehouse_s"
+      },
+      {
+        "semantic": "command_log_view",
+        "icon": "newspaper_s"
+      },
+      {
+        "semantic": "list_view",
+        "icon": "bars_s"
+      },
+      {
+        "semantic": "grid_view",
+        "icon": "rectangle_small_s"
+      },
+      {
+        "semantic": "tree_view",
+        "icon": "stairs_o"
+      },
+      {
+        "semantic": "chart_view",
+        "icon": "circle_notch_o"
+      },
+      {
+        "semantic": "globe_view",
+        "icon": "globe"
+      },
+      {
+        "semantic": "toggle_filter_view",
+        "icon": "filter_s"
+      },
+      {
+        "semantic": "toggle_basket_view",
+        "icon": "folder_s"
+      },
+      {
+        "semantic": "toggle_fullscreen_view",
+        "icon": "compress_o"
+      },
+      {
+        "semantic": "front_view",
+        "icon": "tv_s"
+      },
+      {
+        "semantic": "rear_view",
+        "icon": "tv_o"
+      },
+      {
+        "semantic": "toggle_name_ip_view",
+        "icon": "ellipsis_s"
+      },
+      {
+        "semantic": "help_view",
+        "icon": "question"
+      },
+      {
+        "semantic": "about_view",
+        "icon": "circle-info-s"
+      },
+      {
+        "semantic": "user_profile_view",
+        "icon": "user_s"
+      },
+      {
+        "semantic": "refresh_data",
+        "icon": "rotate_s"
+      },
+      {
+        "semantic": "reload_data",
+        "icon": "spinner_s"
+      },
+      {
+        "semantic": "search_data",
+        "icon": "magnifying_glass_o"
+      },
+      {
+        "semantic": "search_advanced_data",
+        "icon": "filter_s"
+      },
+      {
+        "semantic": "query_data",
+        "icon": "filter_o"
+      },
+      {
+        "semantic": "export_io",
+        "icon": "arrow_down_s"
+      },
+      {
+        "semantic": "import_io",
+        "icon": "arrow_up_s"
+      },
+      {
+        "semantic": "download_io",
+        "icon": "download_s"
+      },
+      {
+        "semantic": "upload_io",
+        "icon": "upload_s"
+      },
+      {
+        "semantic": "print_io",
+        "icon": "newspaper_s"
+      },
+      {
+        "semantic": "copy_io",
+        "icon": "copy_s"
+      },
+      {
+        "semantic": "success_state",
+        "icon": "check"
+      },
+      {
+        "semantic": "success_circle_state",
+        "icon": "check_s"
+      },
+      {
+        "semantic": "error_state",
+        "icon": "xmark"
+      },
+      {
+        "semantic": "error_circle_state",
+        "icon": "xmark_s"
+      },
+      {
+        "semantic": "warning_state",
+        "icon": "triangle_s"
+      },
+      {
+        "semantic": "info_state",
+        "icon": "circle_info_s"
+      },
+      {
+        "semantic": "question_state",
+        "icon": "question"
+      },
+      {
+        "semantic": "favorite_state",
+        "icon": "star_s"
+      },
+      {
+        "semantic": "locked_state",
+        "icon": "lock_s"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "EEUR",
+      "served_by_colo": "WAW",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2347
+      },
+      "duration": 0.2347,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 40960,
+      "rows_read": 99,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]

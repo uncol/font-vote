@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - db-data:/data
+    secrets:
+      - GITHUB_CLIENT_ID
+      - GITHUB_CLIENT_SECRET
+      - COOKIE_SECRET
+      - ADMIN_ALLOWLIST
+    environment:
+      - DB_PATH=/data/app.db
+      - BASE_URL=${BASE_URL:-https://font-vote.sova.satel.org}
+      - CORS_ORIGIN=${CORS_ORIGIN:-*}
+    restart: unless-stopped
+
+volumes:
+  db-data:
+    driver: local
+
+secrets:
+  GITHUB_CLIENT_ID:
+    file: ./secrets/github_client_id.txt
+  GITHUB_CLIENT_SECRET:
+    file: ./secrets/github_client_secret.txt
+  COOKIE_SECRET:
+    file: ./secrets/cookie_secret.txt
+  ADMIN_ALLOWLIST:
+    file: ./secrets/admin_allowlist.txt
