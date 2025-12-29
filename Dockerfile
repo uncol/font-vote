@@ -14,6 +14,8 @@ RUN npm install
 # Copy source code and migrations
 COPY src/ ./src/
 COPY migrations/ ./migrations/
+COPY scripts ./scripts
+COPY export ./export
 COPY public/ ./public/
 COPY tsconfig.json ./
 
