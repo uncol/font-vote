@@ -14,6 +14,7 @@ const iconDropdown = document.getElementById("iconDropdown");
 let session = { user: null, isAdmin: false };
 let iconGroups = [];
 let selectedIndex = -1;
+let activeAutocompleteInput = null;
 
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
@@ -74,6 +75,10 @@ function renderTable(items) {
       const input = document.createElement("input");
       input.className = "inline-input";
       input.placeholder = "Новый icon";
+      
+      // Setup autocomplete for this input
+      setupAutocomplete(input);
+      
       const button = document.createElement("button");
       button.textContent = "Предложить";
       button.addEventListener("click", async () => {
@@ -124,12 +129,14 @@ async function loadIconGroups() {
   }
 }
 
-function filterAndRenderDropdown(query) {
+function filterAndRenderDropdown(query, inputElement) {
   if (!query.trim()) {
     iconDropdown.classList.remove('show');
     selectedIndex = -1;
     return;
   }
+  
+  activeAutocompleteInput = inputElement;
   
   const lowerQuery = query.toLowerCase();
   let html = '';
@@ -163,14 +170,26 @@ function filterAndRenderDropdown(query) {
     iconDropdown.classList.add('show');
   }
   
+  // Position dropdown relative to input
+  const rect = inputElement.getBoundingClientRect();
+  iconDropdown.style.position = 'fixed';
+  iconDropdown.style.top = `${rect.bottom}px`;
+  iconDropdown.style.left = `${rect.left}px`;
+  iconDropdown.style.width = `${rect.width}px`;
+  
   selectedIndex = -1;
 }
 
 function selectDropdownItem(icon) {
-  testIcon.value = icon;
+  if (activeAutocompleteInput) {
+    activeAutocompleteInput.value = icon;
+    if (activeAutocompleteInput === testIcon) {
+      testGlyph();
+    }
+  }
   iconDropdown.classList.remove('show');
   selectedIndex = -1;
-  testGlyph();
+  activeAutocompleteInput = null;
 }
 
 function highlightDropdownItem(index) {
@@ -184,6 +203,43 @@ function highlightDropdownItem(index) {
   }
 }
 
+function setupAutocomplete(inputElement) {
+  const debouncedFilter = debounce((value) => {
+    filterAndRenderDropdown(value, inputElement);
+  }, 200);
+
+  inputElement.addEventListener("input", (e) => {
+    debouncedFilter(e.target.value);
+  });
+
+  inputElement.addEventListener("focus", () => {
+    if (inputElement.value.trim()) {
+      filterAndRenderDropdown(inputElement.value, inputElement);
+    }
+  });
+
+  inputElement.addEventListener("keydown", (e) => {
+    const items = iconDropdown.querySelectorAll('.autocomplete-item');
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+      highlightDropdownItem(selectedIndex);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedIndex = Math.max(selectedIndex - 1, -1);
+      highlightDropdownItem(selectedIndex);
+    } else if (e.key === 'Enter' && selectedIndex >= 0) {
+      e.preventDefault();
+      const icon = items[selectedIndex].getAttribute('data-icon');
+      selectDropdownItem(icon);
+    } else if (e.key === 'Escape') {
+      iconDropdown.classList.remove('show');
+      selectedIndex = -1;
+    }
+  });
+}
+
 function testGlyph() {
   const icon = testIcon.value.trim();
   if (!icon) {
@@ -195,42 +251,13 @@ function testGlyph() {
 }
 
 const debouncedLoad = debounce(loadCollection, 300);
-const debouncedFilter = debounce(filterAndRenderDropdown, 200);
 
 [searchSemantic, searchIcon].forEach((input) => input.addEventListener("input", debouncedLoad));
 [sortBy, sortOrder].forEach((select) => select.addEventListener("change", loadCollection));
 
-testIcon.addEventListener("input", (e) => {
-  debouncedFilter(e.target.value);
-  testGlyph();
-});
-
-testIcon.addEventListener("focus", () => {
-  if (testIcon.value.trim()) {
-    filterAndRenderDropdown(testIcon.value);
-  }
-});
-
-testIcon.addEventListener("keydown", (e) => {
-  const items = iconDropdown.querySelectorAll('.autocomplete-item');
-  
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
-    highlightDropdownItem(selectedIndex);
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    selectedIndex = Math.max(selectedIndex - 1, -1);
-    highlightDropdownItem(selectedIndex);
-  } else if (e.key === 'Enter' && selectedIndex >= 0) {
-    e.preventDefault();
-    const icon = items[selectedIndex].getAttribute('data-icon');
-    selectDropdownItem(icon);
-  } else if (e.key === 'Escape') {
-    iconDropdown.classList.remove('show');
-    selectedIndex = -1;
-  }
-});
+// Setup autocomplete for test icon field
+setupAutocomplete(testIcon);
+testIcon.addEventListener("input", testGlyph);
 
 iconDropdown.addEventListener('click', (e) => {
   const item = e.target.closest('.autocomplete-item');
@@ -241,9 +268,11 @@ iconDropdown.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  if (!testIcon.contains(e.target) && !iconDropdown.contains(e.target)) {
+  const isInputClick = e.target.classList?.contains('inline-input') || e.target === testIcon;
+  if (!isInputClick && !iconDropdown.contains(e.target)) {
     iconDropdown.classList.remove('show');
     selectedIndex = -1;
+    activeAutocompleteInput = null;
   }
 });
 
