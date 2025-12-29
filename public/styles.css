@@ -181,11 +181,11 @@ button.ghost:hover {
 
 .icon-cell {
   border: 1px solid #e4e4e4;
-  width: 30px;
+  width: 90px;
   height: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .row-actions {

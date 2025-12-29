@@ -69,13 +69,14 @@ function renderTable(items) {
     const iconEl = document.createElement("i");
     const iconClass = item.icon.replace(/_/g, '-');
     iconEl.className = `gf ${iconClass} gf-16px`;
+    iconEl.style.paddingBottom = "4px"; 
     iconWrapper.appendChild(iconEl);
     previewCell.appendChild(iconWrapper);
     if (session.user) {
       const input = document.createElement("input");
       const proposePreviewEl = document.createElement("i");
       proposePreviewEl.style.margin = "0 8px";
-      proposePreviewEl.style.paddingBottom = "4px";
+      proposePreviewEl.style.paddingBottom = "4px"; 
       proposePreviewEl.style.width = "16px";
       input.className = "inline-input";
       input.placeholder = "Новая icon";
@@ -114,8 +115,8 @@ function renderTable(items) {
       });
       const wrapper = document.createElement("div");
       wrapper.className = "row-actions";
+      iconWrapper.appendChild(proposePreviewEl);
       wrapper.appendChild(input);
-      wrapper.appendChild(proposePreviewEl);
       wrapper.appendChild(button);
       cell.appendChild(wrapper);
     } else {
@@ -220,7 +221,7 @@ function selectDropdownItem(icon) {
       testGlyph();
     }
     if (activeAutocompleteInput.classList.contains('inline-input')) {
-      const iconEl = activeAutocompleteInput.nextElementSibling;
+      const iconEl = activeAutocompleteInput.closest("tr").querySelector('td:nth-child(2) i:nth-child(2)'); 
       const iconClass = `gf ${icon.replace(/_/g, '-')} gf-16px`;
       iconEl.className = iconClass;
     }
