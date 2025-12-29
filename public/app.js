@@ -9,8 +9,11 @@ const sortBy = document.getElementById("sortBy");
 const sortOrder = document.getElementById("sortOrder");
 const testIcon = document.getElementById("testIcon");
 const testResult = document.getElementById("testResult");
+const iconDropdown = document.getElementById("iconDropdown");
 
 let session = { user: null, isAdmin: false };
+let iconGroups = [];
+let selectedIndex = -1;
 
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
@@ -111,6 +114,76 @@ function debounce(fn, delay) {
   };
 }
 
+async function loadIconGroups() {
+  try {
+    const response = await fetch('/icons-grouped.json');
+    iconGroups = await response.json();
+  } catch (err) {
+    console.error('Failed to load icon groups:', err);
+    iconGroups = [];
+  }
+}
+
+function filterAndRenderDropdown(query) {
+  if (!query.trim()) {
+    iconDropdown.classList.remove('show');
+    selectedIndex = -1;
+    return;
+  }
+  
+  const lowerQuery = query.toLowerCase();
+  let html = '';
+  let visibleCount = 0;
+  
+  iconGroups.forEach(({ group, items }) => {
+    const filtered = items.filter(item => 
+      item.icon.toLowerCase().includes(lowerQuery) ||
+      item.description.toLowerCase().includes(lowerQuery)
+    );
+    
+    if (filtered.length > 0) {
+      html += `<div class="autocomplete-group">${group}</div>`;
+      filtered.forEach((item, idx) => {
+        html += `
+          <div class="autocomplete-item" data-icon="${item.icon}" data-index="${visibleCount}">
+            <span class="autocomplete-item-icon">${item.icon}</span>
+            <span class="autocomplete-item-desc">${item.description}</span>
+          </div>
+        `;
+        visibleCount++;
+      });
+    }
+  });
+  
+  if (html) {
+    iconDropdown.innerHTML = html;
+    iconDropdown.classList.add('show');
+  } else {
+    iconDropdown.innerHTML = '<div style="padding: 12px; color: var(--muted); text-align: center;">Ничего не найдено</div>';
+    iconDropdown.classList.add('show');
+  }
+  
+  selectedIndex = -1;
+}
+
+function selectDropdownItem(icon) {
+  testIcon.value = icon;
+  iconDropdown.classList.remove('show');
+  selectedIndex = -1;
+  testGlyph();
+}
+
+function highlightDropdownItem(index) {
+  const items = iconDropdown.querySelectorAll('.autocomplete-item');
+  items.forEach((item, idx) => {
+    item.classList.toggle('selected', idx === index);
+  });
+  
+  if (index >= 0 && index < items.length) {
+    items[index].scrollIntoView({ block: 'nearest' });
+  }
+}
+
 function testGlyph() {
   const icon = testIcon.value.trim();
   if (!icon) {
@@ -122,10 +195,57 @@ function testGlyph() {
 }
 
 const debouncedLoad = debounce(loadCollection, 300);
+const debouncedFilter = debounce(filterAndRenderDropdown, 200);
 
 [searchSemantic, searchIcon].forEach((input) => input.addEventListener("input", debouncedLoad));
 [sortBy, sortOrder].forEach((select) => select.addEventListener("change", loadCollection));
-testIcon.addEventListener("input", testGlyph);
+
+testIcon.addEventListener("input", (e) => {
+  debouncedFilter(e.target.value);
+  testGlyph();
+});
+
+testIcon.addEventListener("focus", () => {
+  if (testIcon.value.trim()) {
+    filterAndRenderDropdown(testIcon.value);
+  }
+});
+
+testIcon.addEventListener("keydown", (e) => {
+  const items = iconDropdown.querySelectorAll('.autocomplete-item');
+  
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+    highlightDropdownItem(selectedIndex);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    selectedIndex = Math.max(selectedIndex - 1, -1);
+    highlightDropdownItem(selectedIndex);
+  } else if (e.key === 'Enter' && selectedIndex >= 0) {
+    e.preventDefault();
+    const icon = items[selectedIndex].getAttribute('data-icon');
+    selectDropdownItem(icon);
+  } else if (e.key === 'Escape') {
+    iconDropdown.classList.remove('show');
+    selectedIndex = -1;
+  }
+});
+
+iconDropdown.addEventListener('click', (e) => {
+  const item = e.target.closest('.autocomplete-item');
+  if (item) {
+    const icon = item.getAttribute('data-icon');
+    selectDropdownItem(icon);
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!testIcon.contains(e.target) && !iconDropdown.contains(e.target)) {
+    iconDropdown.classList.remove('show');
+    selectedIndex = -1;
+  }
+});
 
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
@@ -133,5 +253,8 @@ loginBtn.addEventListener("click", () => {
 
 (async () => {
   await loadSession();
-  await loadCollection();
+  await Promise.all([
+    loadCollection(),
+    loadIconGroups()
+  ]);
 })();

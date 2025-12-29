@@ -1,0 +1,1577 @@
+[
+  {
+    "group": "Brands",
+    "items": [
+      {
+        "icon": "brand-noc-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "brand-gufolabs-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "brand-sova-s",
+        "description": "upcoming"
+      }
+    ]
+  },
+  {
+    "group": "UI",
+    "items": [
+      {
+        "icon": "circle",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-small-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rectangle-small-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "star-small-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "ban-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "triangle-small-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "copy-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "copy-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "play",
+        "description": "upcoming"
+      },
+      {
+        "icon": "play-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "play-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pause",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pause-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pause-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "minus",
+        "description": "upcoming"
+      },
+      {
+        "icon": "minus-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "minus-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "minus-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "minus-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "plus",
+        "description": "upcoming"
+      },
+      {
+        "icon": "plus-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "plus-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "plus-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "plus-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "check",
+        "description": "upcoming"
+      },
+      {
+        "icon": "check-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "compress-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "power-off-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-right-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-up",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-up-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-left",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-left-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-down",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevron-down-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-right-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-up",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-up-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-left",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-left-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-down",
+        "description": "upcoming"
+      },
+      {
+        "icon": "chevrons-down-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "xmark",
+        "description": "upcoming"
+      },
+      {
+        "icon": "xmark-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "xmark-small",
+        "description": "upcoming"
+      },
+      {
+        "icon": "xmark-small-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "user",
+        "description": "upcoming"
+      },
+      {
+        "icon": "user-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rotate-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rotate-left-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "rotate-right-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "heart",
+        "description": "upcoming"
+      },
+      {
+        "icon": "heart-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "heart-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "magnifying-glass-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "crosshairs-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bars-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cog",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cog-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cog-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "floppy-disk-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "floppy-disk-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "eye-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "globe",
+        "description": "upcoming"
+      },
+      {
+        "icon": "globe-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "globe-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "location-pin-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "location-pin-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "filter-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "filter-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "flag",
+        "description": "upcoming"
+      },
+      {
+        "icon": "flag-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "download-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "upload-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pen-to-square-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "lock",
+        "description": "upcoming"
+      },
+      {
+        "icon": "lock-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "lock-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pencil-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "pencil-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "eraser-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "location-arrow-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "location-arrow-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "comment-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "comment-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "dot-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "ellipsis-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "ellipsis-vertical-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-info-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "house-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "stairs-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "octagon",
+        "description": "upcoming"
+      },
+      {
+        "icon": "octagon-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "octagon-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "spinner-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "circle-notch-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "slash-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "asterisk",
+        "description": "upcoming"
+      },
+      {
+        "icon": "asterisk-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "wrench-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "building-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "warehouse-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "building-columns-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "house-medical-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "dungeon-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "governmental-building-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "industry-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "tv-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "tv-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "tower-broadcast-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bookmark-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bookmark-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-bible-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-bible-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-medical-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-medical-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "newspaper-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "newspaper-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "people-group-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-open-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "book-open-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "trash-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "trash-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "burst-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "recycle-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "comment-dots-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "comment-dots-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bullseye-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "certificate-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cross-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "car-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "car-side-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "city-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "fence-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "map-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "map-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "barcode-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "layer-group-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "sitemap-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "folder-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "folder-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "python-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-down-left-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-down-right-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-up-left-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-up-right-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-left-up-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-left-down-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-right-up-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-u-turn-right-down-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left-to-line-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up-to-line-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right-to-line-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down-to-line-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left-to-arc-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up-to-arc-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right-to-arc-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down-to-arc-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left-to-bracket-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up-to-bracket-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right-to-bracket-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down-to-bracket-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-left-to-square-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-up-to-square-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-right-to-square-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "arrow-down-to-square-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "print-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "print-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "shredder-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "shredder-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-code-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-image-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-csv-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-pdf-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-xslx-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-docx-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-json-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "file-yaml-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "fan-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "alien-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "alien-o",
+        "description": "upcoming"
+      }
+    ]
+  },
+  {
+    "group": "IT",
+    "items": [
+      {
+        "icon": "database",
+        "description": "upcoming"
+      },
+      {
+        "icon": "database-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "internet",
+        "description": "upcoming"
+      },
+      {
+        "icon": "fiber-optics-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "radiation",
+        "description": "upcoming"
+      },
+      {
+        "icon": "radiation-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "biohazard-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bolt",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bolt-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "lightning-bolt",
+        "description": "upcoming"
+      },
+      {
+        "icon": "lightning-bolt-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "wifi",
+        "description": "upcoming"
+      },
+      {
+        "icon": "wifi-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "database-postgres",
+        "description": "upcoming"
+      },
+      {
+        "icon": "atom-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bluetooth-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ip",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ip-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ip-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-mpls",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-mpls-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-mpls-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-vpn",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-vpn-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-vpn-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-wan",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-wan-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-wan-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-lan",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-lan-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-lan-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-pstn",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-pstn-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-pstn-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-plmn",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-plmn-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-plmn-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ims",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ims-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-ims-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-sdh",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-sdh-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cloud-sdh-o",
+        "description": "upcoming"
+      }
+    ]
+  },
+  {
+    "group": "Cisco Stencils",
+    "items": [
+      {
+        "icon": "cisco-accesspoint",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-ace",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-ata",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-atm-router",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-atm-switch",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-bridge",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-broadband-router",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-cable-modem",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-asa-5500",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-class-4-5-switch",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-concentrator",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-firewall",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-generic-softswitch",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-host",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-iptv-broadcast-server",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-layer-3-switch",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-network-management",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-optical-amplifier",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-relational-database",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cisco-router",
+        "description": "Classic Cisco-style router icon."
+      },
+      {
+        "icon": "cisco-workgroup-switch",
+        "description": "Classic Cisco-style switch icon."
+      },
+      {
+        "icon": "cisco-rps",
+        "description": "reserved"
+      }
+    ]
+  },
+  {
+    "group": "Juniper Stencils",
+    "items": [
+      {
+        "icon": "juniper-generic-router",
+        "description": "upcoming"
+      },
+      {
+        "icon": "juniper-l2-l3-switch",
+        "description": "upcoming"
+      },
+      {
+        "icon": "juniper-l2-l3-switch2",
+        "description": "upcoming"
+      },
+      {
+        "icon": "juniper-fcoe",
+        "description": "upcoming"
+      },
+      {
+        "icon": "juniper-switch",
+        "description": "upcoming"
+      }
+    ]
+  },
+  {
+    "group": "Huawei Stencils",
+    "items": [
+      {
+        "icon": "huawei-msan",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-dslam",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-optical-splitter",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-fiber-connector",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-bras",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-access-node",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-bits",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-sps",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-location-server",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-iserver",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-bcs",
+        "description": "upcoming"
+      },
+      {
+        "icon": "huawei-rnc",
+        "description": "upcoming"
+      }
+    ]
+  },
+  {
+    "group": "Unicode Symbols",
+    "items": [
+      {
+        "icon": "exclamation",
+        "description": "upcoming"
+      },
+      {
+        "icon": "hashtag",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-round",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-round-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "comma",
+        "description": "upcoming"
+      },
+      {
+        "icon": "full-stop",
+        "description": "upcoming"
+      },
+      {
+        "icon": "zero",
+        "description": "upcoming"
+      },
+      {
+        "icon": "one",
+        "description": "upcoming"
+      },
+      {
+        "icon": "two",
+        "description": "upcoming"
+      },
+      {
+        "icon": "three",
+        "description": "upcoming"
+      },
+      {
+        "icon": "four",
+        "description": "upcoming"
+      },
+      {
+        "icon": "five",
+        "description": "upcoming"
+      },
+      {
+        "icon": "six",
+        "description": "upcoming"
+      },
+      {
+        "icon": "seven",
+        "description": "upcoming"
+      },
+      {
+        "icon": "eight",
+        "description": "upcoming"
+      },
+      {
+        "icon": "nine",
+        "description": "upcoming"
+      },
+      {
+        "icon": "question",
+        "description": "upcoming"
+      },
+      {
+        "icon": "at",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-a",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-b",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-c",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-d",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-e",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-f",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-g",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-h",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-i",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-j",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-k",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-l",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-m",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-n",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-p",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-q",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-r",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-s",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-t",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-u",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-v",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-w",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-x",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-y",
+        "description": "upcoming"
+      },
+      {
+        "icon": "latin-capital-z",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-square",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-square-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-curly",
+        "description": "upcoming"
+      },
+      {
+        "icon": "bracket-curly-right",
+        "description": "upcoming"
+      },
+      {
+        "icon": "copyright",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-a",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-be",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ve",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ghe",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-de",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ie",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-zhe",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ze",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ai",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-short-i",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ka",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-el",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-em",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-en",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-o",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-pe",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-er",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-es",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-te",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-u",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ef",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ha",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-tse",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-che",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-sha",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-shcha",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-hard-sign",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-yeru",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-soft-sign",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-e",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-yu",
+        "description": "upcoming"
+      },
+      {
+        "icon": "cyrillic-capital-ya",
+        "description": "upcoming"
+      },
+      {
+        "icon": "ohm-sign",
+        "description": "upcoming"
+      },
+      {
+        "icon": "ankh",
+        "description": "upcoming"
+      }
+    ]
+  }
+]

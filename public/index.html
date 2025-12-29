@@ -33,9 +33,10 @@
                 </p>
             </div>
             <div class="controls">
-                <div>
+                <div style="position: relative;">
                     <label for="testIcon">Проверить glyph</label>
-                    <input id="testIcon" type="text" placeholder="arrow_left" />
+                    <input id="testIcon" type="text" placeholder="arrow_left" autocomplete="off" />
+                    <div id="iconDropdown" class="autocomplete-dropdown"></div>
                 </div>
                 <div id="testResult" style="display: flex; align-items: center; gap: 12px; font-size: 32px;">
                 </div>
