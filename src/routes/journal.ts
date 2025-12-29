@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     `SELECT id, semantic, icon, user, created, applied FROM journal WHERE semantic LIKE ? AND user LIKE ? ORDER BY created ${order}`
   );
 
-  const results = stmt.all(semanticFilter, userFilter);
+  const results = stmt.all(semanticFilter, userFilter) as Array<{ id: string; semantic: string; icon: string; user: string; created: string; applied: number }>;
   jsonResponse(res, { items: results });
 });
 

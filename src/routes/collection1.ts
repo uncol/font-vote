@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
     `SELECT semantic, icon FROM collection1 WHERE semantic LIKE ? AND icon LIKE ? ORDER BY ${sort} ${order}`
   );
 
-  const results = stmt.all(semanticFilter, iconFilter);
+  const results = stmt.all(semanticFilter, iconFilter) as Array<{ semantic: string; icon: string }>;
   jsonResponse(res, { items: results });
 });
 
