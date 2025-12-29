@@ -121,8 +121,16 @@ function debounce(fn, delay) {
 
 async function loadIconGroups() {
   try {
-    const response = await fetch('/icons-grouped.json');
-    iconGroups = await response.json();
+    const manifest = await fetchJSON('/api/manifest');
+    
+    // Convert manifest.json format to iconGroups format
+    iconGroups = Object.entries(manifest.icons).map(([group, items]) => ({
+      group,
+      items: items.map(item => ({
+        icon: item.name,
+        description: item.description || item.added_in || ''
+      }))
+    }));
   } catch (err) {
     console.error('Failed to load icon groups:', err);
     iconGroups = [];

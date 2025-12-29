@@ -41,6 +41,10 @@ http://localhost/api/auth/callback
 docker-compose up -d
 ```
 
+```bash
+docker-compose up --build -d
+```
+
 ### 5. Check logs
 
 ```bash

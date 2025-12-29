@@ -15,6 +15,7 @@ import { createCallbackRouter } from './routes/auth/callback.js';
 import { createGithubRouter } from './routes/auth/github.js';
 import collection1Router from './routes/collection1.js';
 import journalRouter from './routes/journal.js';
+import manifestRouter from './routes/manifest.js';
 import { createMeRouter } from './routes/me.js';
 import proposeRouter from './routes/propose.js';
 
@@ -64,6 +65,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // API routes
 app.use('/api/collection1', collection1Router);
 app.use('/api/journal', journalRouter);
+app.use('/api/manifest', manifestRouter);
 app.use('/api/me', createMeRouter(config));
 app.use('/api/propose', proposeRouter);
 app.use('/api/admin/collection1', createAdminCollection1Router(config));
