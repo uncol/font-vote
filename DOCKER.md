@@ -69,7 +69,7 @@ docker run --rm -v font-vote_db-data:/data -v $(pwd):/backup alpine tar czf /bac
 
 ## Development
 
-For local development without Docker:
+### Local development without Docker:
 
 ```bash
 npm install
@@ -99,6 +99,20 @@ pnpm run dev
 ```
 
 Server will run on http://localhost:80 (or port specified in PORT env var)
+
+### Remote with docker
+
+1. Save docker image
+
+```bash
+docker image save font-vote-app | gzip > font-vote-app.gzip
+```
+
+2. Make database backup
+
+```bash
+docker run --rm -v font-vote_db-data:/data -v $(pwd):/backup alpine tar czf /backup/db-backup.tar.gz /data
+```
 
 ## Migration Differences from Cloudflare
 
