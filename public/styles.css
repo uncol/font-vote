@@ -101,6 +101,10 @@ header {
   margin-bottom: 16px;
 }
 
+.test-icon {
+  width: 75%;
+}
+
 label {
   font-size: 12px;
   color: var(--muted);
@@ -119,7 +123,6 @@ button {
 
 input,
 select {
-  width: 100%;
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid var(--stroke);
@@ -160,9 +163,9 @@ button.ghost:hover {
 .table th,
 .table td {
   text-align: left;
-  padding: 12px 8px;
+  padding: 4px 0;
   border-bottom: 1px solid var(--stroke);
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .table th {
@@ -183,10 +186,6 @@ button.ghost:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #919191;
-}
-.icon-color {
-  color: #919191
 }
 
 .row-actions {
@@ -197,8 +196,9 @@ button.ghost:hover {
 }
 
 .inline-input {
-  min-width: 120px;
+  min-width: 180px;
   padding: 8px 10px;
+  flex-grow: 1;
 }
 
 .notice {

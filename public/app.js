@@ -73,8 +73,21 @@ function renderTable(items) {
     previewCell.appendChild(iconWrapper);
     if (session.user) {
       const input = document.createElement("input");
+      const proposePreviewEl = document.createElement("i");
+      proposePreviewEl.style.margin = "0 8px";
+      proposePreviewEl.style.paddingBottom = "4px";
+      proposePreviewEl.style.width = "16px";
       input.className = "inline-input";
-      input.placeholder = "Новый icon";
+      input.placeholder = "Новая icon";
+      input.addEventListener("input", () => {
+        const val = input.value.trim();
+        if (val) {
+          const cls = val.replace(/_/g, '-');
+          proposePreviewEl.className = `gf ${cls} gf-16px`;
+        } else {
+          proposePreviewEl.className = "";
+        }
+      });
       
       // Setup autocomplete for this input
       setupAutocomplete(input);
@@ -102,6 +115,7 @@ function renderTable(items) {
       const wrapper = document.createElement("div");
       wrapper.className = "row-actions";
       wrapper.appendChild(input);
+      wrapper.appendChild(proposePreviewEl);
       wrapper.appendChild(button);
       cell.appendChild(wrapper);
     } else {
@@ -202,8 +216,13 @@ function updateDropdownPosition() {
 function selectDropdownItem(icon) {
   if (activeAutocompleteInput) {
     activeAutocompleteInput.value = icon;
-    if (activeAutocompleteInput === testIcon) {
+    if (activeAutocompleteInput.classList.contains('test-icon')) {
       testGlyph();
+    }
+    if (activeAutocompleteInput.classList.contains('inline-input')) {
+      const iconEl = activeAutocompleteInput.nextElementSibling;
+      const iconClass = `gf ${icon.replace(/_/g, '-')} gf-16px`;
+      iconEl.className = iconClass;
     }
   }
   iconDropdown.classList.remove('show');
@@ -258,7 +277,7 @@ function setupAutocomplete(inputElement) {
     }
   });
 }
-
+ 
 function testGlyph() {
   const icon = testIcon.value.trim();
   if (!icon) {
@@ -266,7 +285,7 @@ function testGlyph() {
     return;
   }
   const className = icon.replace(/_/g, "-");
-  testResult.innerHTML = `<i class="gf ${className}"></i> <span style="font-size: 14px; color: var(--muted);">${icon} → ${className}</span>`;
+  testResult.innerHTML = `<i class="gf ${className}" style="width: 32px;"></i> <span style="font-size: 14px; color: var(--muted);">${icon} → ${className}</span>`;
 }
 
 const debouncedLoad = debounce(loadCollection, 300);
@@ -281,7 +300,7 @@ testIcon.addEventListener("input", testGlyph);
 iconDropdown.addEventListener('click', (e) => {
   const item = e.target.closest('.autocomplete-item');
   if (item) {
-    const icon = item.getAttribute('data-icon');
+    const icon = item.dataset.icon;
     selectDropdownItem(icon);
   }
 });
@@ -298,8 +317,8 @@ document.addEventListener('click', (e) => {
 window.addEventListener('scroll', updateDropdownPosition, true);
 window.addEventListener('resize', updateDropdownPosition);
 
-loginBtn.addEventListener("click", () => {
-  window.location.href = "/api/auth/github";
+loginBtn.addEventListener('click', () => {
+  window.location.href = '/api/auth/github';
 });
 
 (async () => {

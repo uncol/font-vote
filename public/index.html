@@ -5,6 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Font Vote - Справочник</title>
+    <style>
+        /* Предотвращаем FOUC */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
     <link rel="stylesheet" href="/styles.css" />
 </head>
 
@@ -35,7 +46,7 @@
             <div class="controls">
                 <div style="position: relative;">
                     <label for="testIcon">Проверить glyph</label>
-                    <input id="testIcon" type="text" placeholder="arrow_left" autocomplete="off" />
+                    <input id="testIcon" class="test-icon" type="text" placeholder="arrow_left" autocomplete="off" />
                     <div id="iconDropdown" class="autocomplete-dropdown"></div>
                 </div>
                 <div id="testResult" style="display: flex; align-items: center; gap: 12px; font-size: 32px;">
@@ -87,6 +98,12 @@
         Данные доступны публично; изменения предлагаются через GitHub OAuth.
     </footer>
 
+    <script>
+        // Убираем FOUC после загрузки страницы
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
     <script src="/app.js" type="module"></script>
 </body>
 

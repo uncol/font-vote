@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Font Vote - Журнал</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header>
-      <div class="brand">
-        <h1>Font Vote</h1>
-        <span class="badge">История изменений</span>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Font Vote - Журнал</title>
+  <style>
+    /* Предотвращаем FOUC */
+    body {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <h1>Font Vote</h1>
+      <span class="badge">История изменений</span>
+    </div>
+    <nav class="nav">
+      <a href="/">Справочник</a>
+      <a class="active" href="/journal.html">Журнал</a>
+      <a href="/admin.html">Админ</a>
+      <button id="loginBtn" class="ghost">Войти через GitHub</button>
+      <span id="userBadge" class="notice"></span>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="hero">
+        <h2>Журнал предложений и изменений</h2>
+        <p>Публичная лента, отсортированная по времени создания. Дубликаты не фильтруются.</p>
       </div>
-      <nav class="nav">
-        <a href="/">Справочник</a>
-        <a class="active" href="/journal.html">Журнал</a>
-        <a href="/admin.html">Админ</a>
-        <button id="loginBtn" class="ghost">Войти через GitHub</button>
-        <span id="userBadge" class="notice"></span>
-      </nav>
-    </header>
+    </section>
 
-    <main class="container">
-      <section class="panel">
-        <div class="hero">
-          <h2>Журнал предложений и изменений</h2>
-          <p>Публичная лента, отсортированная по времени создания. Дубликаты не фильтруются.</p>
+    <section class="panel">
+      <div class="controls">
+        <div>
+          <label for="filterSemantic">Фильтр по semantic</label>
+          <input id="filterSemantic" type="search" placeholder="button.play" />
         </div>
-      </section>
-
-      <section class="panel">
-        <div class="controls">
-          <div>
-            <label for="filterSemantic">Фильтр по semantic</label>
-            <input id="filterSemantic" type="search" placeholder="button.play" />
-          </div>
-          <div>
-            <label for="filterUser">Фильтр по user</label>
-            <input id="filterUser" type="search" placeholder="octocat" />
-          </div>
-          <div>
-            <label for="sortOrder">Порядок</label>
-            <select id="sortOrder">
-              <option value="desc">desc</option>
-              <option value="asc">asc</option>
-            </select>
-          </div>
+        <div>
+          <label for="filterUser">Фильтр по user</label>
+          <input id="filterUser" type="search" placeholder="octocat" />
         </div>
-        <div class="notice" id="countBadge"></div>
-        <table class="table" id="journalTable">
-          <thead>
-            <tr>
-              <th>created</th>
-              <th>semantic</th>
-              <th>icon</th>
-              <th>user</th>
-              <th>applied</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-    </main>
+        <div>
+          <label for="sortOrder">Порядок</label>
+          <select id="sortOrder">
+            <option value="desc">desc</option>
+            <option value="asc">asc</option>
+          </select>
+        </div>
+      </div>
+      <div class="notice" id="countBadge"></div>
+      <table class="table" id="journalTable">
+        <thead>
+          <tr>
+            <th>created</th>
+            <th>semantic</th>
+            <th>icon</th>
+            <th>user</th>
+            <th>applied</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
 
-    <footer>Applied = true отмечает применённые предложения.</footer>
+  <footer>Applied = true отмечает применённые предложения.</footer>
 
-    <script src="/journal.js" type="module"></script>
-  </body>
+  <script>
+    // Убираем FOUC после загрузки страницы
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+  <script src="/journal.js" type="module"></script>
+</body>
+
 </html>

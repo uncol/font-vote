@@ -77,6 +77,7 @@ wrangler pages deploy public --project-name font-vote --branch production
 
 - `GET /api/collection1` (semantic/icon search, sort)
 - `GET /api/journal` (semantic/user filter, created sort)
+- `GET /api/manifest` (fetch manifest.json from CDN with local fallback)
 - `GET /api/me` (session info)
 - `GET /api/auth/github` (OAuth start)
 - `GET /api/auth/callback` (OAuth callback)
