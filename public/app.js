@@ -151,8 +151,10 @@ function filterAndRenderDropdown(query, inputElement) {
     if (filtered.length > 0) {
       html += `<div class="autocomplete-group">${group}</div>`;
       filtered.forEach((item, idx) => {
+        const iconClass = item.icon.replace(/_/g, '-');
         html += `
           <div class="autocomplete-item" data-icon="${item.icon}" data-index="${visibleCount}">
+            <i class="gf ${iconClass}"></i>
             <span class="autocomplete-item-icon">${item.icon}</span>
             <span class="autocomplete-item-desc">${item.description}</span>
           </div>
