@@ -68,7 +68,7 @@ function renderTable(items) {
     iconWrapper.className = "icon-cell";
     const iconEl = document.createElement("i");
     const iconClass = item.icon.replace(/_/g, '-');
-    iconEl.className = `gf ${iconClass} gf-16px`;
+    iconEl.className = `gf ${iconClass} gf-24px`;
     iconEl.style.paddingBottom = "4px"; 
     iconWrapper.appendChild(iconEl);
     previewCell.appendChild(iconWrapper);
@@ -77,14 +77,14 @@ function renderTable(items) {
       const proposePreviewEl = document.createElement("i");
       proposePreviewEl.style.margin = "0 8px";
       proposePreviewEl.style.paddingBottom = "4px"; 
-      proposePreviewEl.style.width = "16px";
+      proposePreviewEl.style.width = "24px";
       input.className = "inline-input";
       input.placeholder = "Новая icon";
       input.addEventListener("input", () => {
         const val = input.value.trim();
         if (val) {
           const cls = val.replace(/_/g, '-');
-          proposePreviewEl.className = `gf ${cls} gf-16px`;
+          proposePreviewEl.className = `gf ${cls} gf-24px`;
         } else {
           proposePreviewEl.className = "";
         }
@@ -222,7 +222,7 @@ function selectDropdownItem(icon) {
     }
     if (activeAutocompleteInput.classList.contains('inline-input')) {
       const iconEl = activeAutocompleteInput.closest("tr").querySelector('td:nth-child(2) i:nth-child(2)'); 
-      const iconClass = `gf ${icon.replace(/_/g, '-')} gf-16px`;
+      const iconClass = `gf ${icon.replace(/_/g, '-')} gf-24px`;
       iconEl.className = iconClass;
     }
   }

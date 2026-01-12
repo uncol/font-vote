@@ -1,5 +1,5 @@
-import { jsonResponse, clampSortOrder, normalizeSemantic } from "../lib/utils";
 import type { Env } from "../lib/types";
+import { clampSortOrder, jsonResponse, normalizeSemantic } from "../lib/utils";
 
 export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   const url = new URL(request.url);
@@ -11,7 +11,18 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
   const userFilter = user ? `%${user.trim()}%` : "%";
 
   const stmt = env.DB.prepare(
-    `SELECT id, semantic, icon, user, created, applied FROM journal WHERE semantic LIKE ? AND user LIKE ? ORDER BY created ${order}`
+    `SELECT journal.id,
+            journal.semantic,
+            journal.icon,
+            journal.user,
+            journal.created,
+            journal.applied,
+            collection1.icon AS current_icon
+       FROM journal
+       LEFT JOIN collection1 ON collection1.semantic = journal.semantic
+      WHERE journal.semantic LIKE ?
+        AND journal.user LIKE ?
+      ORDER BY journal.created ${order}`
   ).bind(semanticFilter, userFilter);
 
   const { results } = await stmt.all();

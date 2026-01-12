@@ -83,11 +83,19 @@ function renderJournal(items) {
     const previewCell = row.querySelector("td:nth-child(4)");
     const iconWrapper = document.createElement("div");
     iconWrapper.className = "icon-cell";
-    const iconEl = document.createElement("i");
-    const iconClass = item.icon.replace(/_/g, '-');
-    iconEl.className = `gf ${iconClass} gf-16px`;
-    iconEl.style.paddingBottom = "4px";
-    iconWrapper.appendChild(iconEl);
+
+    const appendIcon = (iconName, title) => {
+      if (!iconName) return;
+      const iconEl = document.createElement("i");
+      const iconClass = iconName.replace(/_/g, '-');
+      iconEl.className = `gf ${iconClass} gf-24px`;
+      iconEl.style.paddingBottom = "4px";
+      iconEl.title = title;
+      iconWrapper.appendChild(iconEl);
+    };
+
+    appendIcon(item.current_icon, "Текущая иконка");
+    appendIcon(item.icon, "Предлагаемая иконка");
     previewCell.appendChild(iconWrapper);
 
     const cell = row.querySelector("td:last-child");

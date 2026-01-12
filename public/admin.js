@@ -54,9 +54,22 @@ function renderCollection(items) {
       <td>${item.semantic}</td>
       <td></td>
       <td></td>
+      <td></td>
     `;
-    const iconCell = row.querySelector("td:nth-child(2)");
-    const actionCell = row.querySelector("td:nth-child(3)");
+    const previewCell = row.querySelector("td:nth-child(2)");
+    const iconCell = row.querySelector("td:nth-child(3)");
+    const actionCell = row.querySelector("td:nth-child(4)");
+
+    if (item.icon) {
+      const previewWrapper = document.createElement("div");
+      previewWrapper.className = "icon-cell";
+      const iconEl = document.createElement("i");
+      const iconClass = item.icon.replace(/_/g, "-");
+      iconEl.className = `gf ${iconClass} gf-24px`;
+      iconEl.style.paddingBottom = "4px";
+      previewWrapper.appendChild(iconEl);
+      previewCell.appendChild(previewWrapper);
+    }
 
     const input = document.createElement("input");
     input.className = "inline-input";
