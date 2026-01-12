@@ -2,7 +2,6 @@ const loginBtn = document.getElementById("loginBtn");
 const userBadge = document.getElementById("userBadge");
 const adminGate = document.getElementById("adminGate");
 const adminPanel = document.getElementById("adminPanel");
-const adminJournal = document.getElementById("adminJournal");
 
 const newSemantic = document.getElementById("newSemantic");
 const newIcon = document.getElementById("newIcon");
@@ -10,11 +9,6 @@ const addBtn = document.getElementById("addBtn");
 const exportBtn = document.getElementById("exportBtn");
 const collectionCount = document.getElementById("collectionCount");
 const collectionBody = document.querySelector("#adminCollectionTable tbody");
-
-const journalFilter = document.getElementById("journalFilter");
-const journalOrder = document.getElementById("journalOrder");
-const journalCount = document.getElementById("journalCount");
-const journalBody = document.querySelector("#adminJournalTable tbody");
 
 let session = { user: null, isAdmin: false };
 
@@ -40,11 +34,9 @@ async function loadSession() {
   if (session.isAdmin) {
     adminGate.hidden = true;
     adminPanel.hidden = false;
-    adminJournal.hidden = false;
   } else {
     adminGate.hidden = false;
     adminPanel.hidden = true;
-    adminJournal.hidden = true;
   }
 }
 
@@ -82,7 +74,6 @@ function renderCollection(items) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ semantic: item.semantic, icon }),
         });
-        await loadJournal();
       } catch (err) {
         alert(err.message);
       } finally {
@@ -103,7 +94,6 @@ function renderCollection(items) {
           body: JSON.stringify({ semantic: item.semantic }),
         });
         await loadCollection();
-        await loadJournal();
       } catch (err) {
         alert(err.message);
       } finally {
@@ -136,71 +126,11 @@ async function addEntry() {
     newSemantic.value = "";
     newIcon.value = "";
     await loadCollection();
-    await loadJournal();
   } catch (err) {
     alert(err.message);
   } finally {
     addBtn.disabled = false;
   }
-}
-
-function buildJournalQuery() {
-  const params = new URLSearchParams();
-  if (journalFilter.value.trim()) params.set("semantic", journalFilter.value.trim());
-  params.set("order", journalOrder.value);
-  return params.toString();
-}
-
-async function loadJournal() {
-  const query = buildJournalQuery();
-  const data = await fetchJSON(`/api/journal?${query}`);
-  renderJournal(data.items || []);
-}
-
-function renderJournal(items) {
-  journalBody.innerHTML = "";
-  journalCount.textContent = `Записей: ${items.length}`;
-  items.forEach((item) => {
-    const row = document.createElement("tr");
-    const created = new Date(item.created).toLocaleString("ru-RU");
-    const statusClass = item.applied ? "applied" : "pending";
-    const statusLabel = item.applied ? "applied" : "pending";
-    row.innerHTML = `
-      <td>${created}</td>
-      <td>${item.semantic}</td>
-      <td>${item.icon}</td>
-      <td>${item.user}</td>
-      <td><span class="status ${statusClass}">${statusLabel}</span></td>
-      <td></td>
-    `;
-
-    const cell = row.querySelector("td:last-child");
-    if (!item.applied) {
-      const btn = document.createElement("button");
-      btn.textContent = "Apply";
-      btn.addEventListener("click", async () => {
-        btn.disabled = true;
-        try {
-          await fetchJSON("/api/admin/apply", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: item.id }),
-          });
-          await loadCollection();
-          await loadJournal();
-        } catch (err) {
-          alert(err.message);
-        } finally {
-          btn.disabled = false;
-        }
-      });
-      cell.appendChild(btn);
-    } else {
-      cell.textContent = "—";
-    }
-
-    journalBody.appendChild(row);
-  });
 }
 
 function debounce(fn, delay) {
@@ -259,10 +189,6 @@ declare var NOC: NOC;
   URL.revokeObjectURL(url);
 }
 
-const debouncedJournal = debounce(loadJournal, 300);
-
-journalFilter.addEventListener("input", debouncedJournal);
-journalOrder.addEventListener("change", loadJournal);
 addBtn.addEventListener("click", addEntry);
 exportBtn.addEventListener("click", exportTypeScript);
 loginBtn.addEventListener("click", () => {
@@ -273,6 +199,5 @@ loginBtn.addEventListener("click", () => {
   await loadSession();
   if (session.isAdmin) {
     await loadCollection();
-    await loadJournal();
   }
 })();

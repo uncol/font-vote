@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Font Vote - Админ</title>
+    <title>Font Vote - Применить предложения</title>
     <style>
         /* Предотвращаем FOUC */
         body {
@@ -23,13 +23,13 @@
     <header>
         <div class="brand">
             <h1>Font Vote</h1>
-            <span class="badge">Admin Console</span>
+            <span class="badge">Apply Proposals</span>
         </div>
         <nav class="nav">
             <a href="/">Справочник</a>
             <a href="/journal.html">Журнал</a>
-            <a class="active" href="/admin.html">Админ</a>
-            <a href="/apply.html">Применить</a>
+            <a href="/admin.html">Админ</a>
+            <a class="active" href="/apply.html">Применить</a>
             <button id="loginBtn" class="ghost">Войти через GitHub</button>
             <span id="userBadge" class="notice"></span>
         </nav>
@@ -46,39 +46,47 @@
             </div>
         </section>
 
-        <section class="panel" id="adminPanel" hidden>
+        <section class="panel" id="applyPanel" hidden>
             <div class="hero">
-                <h2>Управление справочником</h2>
+                <h2>Применить предложение из журнала</h2>
                 <p>
-                    Добавляйте новые semantic, обновляйте icon и удаляйте
-                    строки.
+                    Apply обновляет Collection1, отмечает запись
+                    applied=true и создает новую запись журнала от имени
+                    админа.
                 </p>
             </div>
             <div class="controls">
                 <div>
-                    <label for="newSemantic">semantic (new)</label>
-                    <input id="newSemantic" type="text" placeholder="button.play" />
+                    <label for="journalFilter">Фильтр semantic</label>
+                    <input id="journalFilter" type="search" placeholder="button.play" />
                 </div>
                 <div>
-                    <label for="newIcon">icon</label>
-                    <input id="newIcon" type="text" placeholder="icon" />
+                    <label for="appliedFilter">Статус</label>
+                    <select id="appliedFilter">
+                        <option value="all">все</option>
+                        <option value="pending">pending</option>
+                        <option value="applied">applied</option>
+                    </select>
                 </div>
                 <div>
-                    <label>&nbsp;</label>
-                    <button id="addBtn">Добавить</button>
-                </div>
-                <div>
-                    <label>&nbsp;</label>
-                    <button id="exportBtn" class="ghost">Export .d.ts</button>
+                    <label for="journalOrder">Порядок</label>
+                    <select id="journalOrder">
+                        <option value="desc">desc</option>
+                        <option value="asc">asc</option>
+                    </select>
                 </div>
             </div>
-            <div class="notice" id="collectionCount"></div>
-            <table class="table" id="adminCollectionTable">
+            <div class="notice" id="journalCount"></div>
+            <table class="table" id="journalTable">
                 <thead>
                     <tr>
+                        <th>created</th>
                         <th>semantic</th>
                         <th>icon</th>
-                        <th>action</th>
+                        <th>preview</th>
+                        <th>user</th>
+                        <th>applied</th>
+                        <th>apply</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -87,7 +95,7 @@
     </main>
 
     <footer>
-        Удаление не логируется, остальные действия пишутся в журнал. <a href="/apply.html">Применить предложения →</a>
+        Применение предложений логируется в журнал от имени админа.
     </footer>
     <script>
         // Убираем FOUC после загрузки страницы
@@ -95,7 +103,7 @@
             document.body.classList.add('loaded');
         });
     </script>
-    <script src="/admin.js" type="module"></script>
+    <script src="/apply.js" type="module"></script>
 </body>
 
 </html>
