@@ -21,8 +21,10 @@ COPY tsconfig.json ./
 
 # Download gufo-font files from CDN and update styles.css
 RUN cd public && \
-     curl -sL -o gufo-font.css https://gf.cdn.gufolabs.com/latest/gufo-font.css && \
-     curl -sL -o GufoFont-Regular.woff2 https://github.com/gufolabs/gufo_font/raw/main/webfonts/GufoFont-Regular.woff2 && \
+    curl -sSL -o gufo-font.css https://gf.cdn.gufolabs.com/latest/gufo-font.css && \
+    FONT_PATH=$(grep -o 'GufoFont[^"\)]*\.woff2' gufo-font.css | head -n 1) && \
+    curl -sSL -o GufoFont-Regular.woff2 "https://gf.cdn.gufolabs.com/latest/$FONT_PATH" && \
+    sed -i "s|$FONT_PATH|GufoFont-Regular.woff2|g" gufo-font.css && \
     sed -i 's|https://gf.cdn.gufolabs.com/latest/gufo-font.css|/gufo-font.css|g' styles.css
 
 # Build TypeScript
