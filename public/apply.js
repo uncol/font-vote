@@ -75,28 +75,32 @@ function renderJournal(items) {
       <td>${item.semantic}</td>
       <td>${item.icon}</td>
       <td></td>
+      <td></td>
       <td>${item.user}</td>
       <td><span class="status ${statusClass}">${statusLabel}</span></td>
       <td></td>
     `;
 
-    const previewCell = row.querySelector("td:nth-child(4)");
-    const iconWrapper = document.createElement("div");
-    iconWrapper.className = "icon-cell";
-
-    const appendIcon = (iconName, title) => {
-      if (!iconName) return;
+    const renderPreview = (cell, iconName, title) => {
+      if (!iconName) {
+        cell.textContent = "—";
+        return;
+      }
+      const wrapper = document.createElement("div");
+      wrapper.className = "icon-cell";
       const iconEl = document.createElement("i");
       const iconClass = iconName.replace(/_/g, '-');
       iconEl.className = `gf ${iconClass} gf-24px`;
       iconEl.style.paddingBottom = "4px";
       iconEl.title = title;
-      iconWrapper.appendChild(iconEl);
+      wrapper.appendChild(iconEl);
+      cell.appendChild(wrapper);
     };
 
-    appendIcon(item.current_icon, "Текущая иконка");
-    appendIcon(item.icon, "Предлагаемая иконка");
-    previewCell.appendChild(iconWrapper);
+    const currentCell = row.querySelector("td:nth-child(4)");
+    const proposedCell = row.querySelector("td:nth-child(5)");
+    renderPreview(currentCell, item.current_icon, "Текущая иконка");
+    renderPreview(proposedCell, item.icon, "Предлагаемая иконка");
 
     const cell = row.querySelector("td:last-child");
     if (!item.applied) {
