@@ -80,7 +80,7 @@ function renderTable(items) {
       proposePreviewEl.style.margin = "0 8px";
       proposePreviewEl.style.paddingBottom = "4px"; 
       proposePreviewEl.style.width = "24px";
-      input.className = "inline-input";
+      input.className = "inline-input catalog-icon-input";
       input.placeholder = "Новая icon";
       input.addEventListener("input", () => {
         const val = input.value.trim();

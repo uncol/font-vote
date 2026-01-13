@@ -98,11 +98,14 @@ async function filterAndRenderDropdown(query, inputElement, options = {}) {
 
   const lowerQuery = trimmedQuery.toLowerCase();
   const normalizedQuery = normalizeIconName(trimmedQuery);
-  let html = "";
-  let visibleCount = 0;
   const seenIcons = new Set();
   const renderAll = showAll && !trimmedQuery;
+  let html = "";
+  let visibleCount = 0;
 
+  if (inputElement.classList.contains("catalog-icon-input")) {
+    html += "<div class='autocomplete-item' data-icon='external-link-selected'><span class='autocomplete-item-desc'>Внешняя ссылка</span></div>";
+  }
   iconGroups.forEach(({ group, items }) => {
     const filtered = renderAll
       ? items
@@ -119,9 +122,9 @@ async function filterAndRenderDropdown(query, inputElement, options = {}) {
 
     const uniqueItems = [];
     filtered.forEach((item) => {
-      const dedupKey = normalizeIconName(item.icon);
-      if (seenIcons.has(dedupKey)) return;
-      seenIcons.add(dedupKey);
+      const deDupKey = normalizeIconName(item.icon);
+      if (seenIcons.has(deDupKey)) return;
+      seenIcons.add(deDupKey);
       uniqueItems.push(item);
     });
 
@@ -141,8 +144,8 @@ async function filterAndRenderDropdown(query, inputElement, options = {}) {
     }
   });
 
-  if (!html) {
-    html = '<div style="padding: 12px; color: var(--muted); text-align: center;">Ничего не найдено</div>';
+  if (!html.includes("autocomplete-item-icon")) {
+    html += '<div style="padding: 12px; color: var(--muted); text-align: center;">Ничего не найдено</div>';
   }
 
   dropdownEl.innerHTML = html;
@@ -167,8 +170,12 @@ function updateDropdownPosition() {
 
 function selectDropdownItem(icon) {
   if (!activeInput) return;
-  activeInput.value = icon;
-  activeInput.dispatchEvent(new Event("input", { bubbles: true }));
+  if (icon === "external-link-selected") {
+    activeInput.value = "https://";
+  } else {
+    activeInput.value = icon;
+    activeInput.dispatchEvent(new Event("input", { bubbles: true }));
+  }
   closeDropdown();
 }
 
