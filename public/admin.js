@@ -1,3 +1,5 @@
+import { initIconAutocomplete } from "./autocomplete.js";
+
 const loginBtn = document.getElementById("loginBtn");
 const userBadge = document.getElementById("userBadge");
 const adminGate = document.getElementById("adminGate");
@@ -9,6 +11,13 @@ const addBtn = document.getElementById("addBtn");
 const exportBtn = document.getElementById("exportBtn");
 const collectionCount = document.getElementById("collectionCount");
 const collectionBody = document.querySelector("#adminCollectionTable tbody");
+
+const {
+  setupInput: setupIconAutocomplete,
+  loadIconGroups: ensureIconManifest,
+} = initIconAutocomplete(document.getElementById("iconDropdown"));
+
+setupIconAutocomplete(newIcon);
 
 let session = { user: null, isAdmin: false };
 
@@ -81,6 +90,7 @@ function renderCollection(items) {
     const input = document.createElement("input");
     input.className = "inline-input";
     input.value = item.icon;
+    setupIconAutocomplete(input);
 
     const updateProposal = () => renderIconCell(proposalCell, input.value);
     updateProposal();
@@ -157,14 +167,6 @@ async function addEntry() {
   }
 }
 
-function debounce(fn, delay) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
-  };
-}
-
 function exportTypeScript() {
   const rows = Array.from(collectionBody.querySelectorAll("tr"));
   const items = rows.map(row => {
@@ -223,6 +225,9 @@ loginBtn.addEventListener("click", () => {
 (async () => {
   await loadSession();
   if (session.isAdmin) {
-    await loadCollection();
+    await Promise.all([
+      loadCollection(),
+      ensureIconManifest(),
+    ]);
   }
 })();

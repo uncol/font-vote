@@ -197,12 +197,14 @@ button.ghost:hover {
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: end;
 }
 
 .inline-input {
   min-width: 180px;
   padding: 8px 10px;
   flex-grow: 1;
+  width: 100%;
 }
 
 .notice {
