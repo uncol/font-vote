@@ -118,7 +118,7 @@ docker save font-vote-app | gzip > font-vote-app.tar.gz
 
 ```bash
 sudo docker rmi font-vote-app:latest
-sudo docker load < ~/images.tar.gz
+sudo docker load < ~/font-vote-app.tar.gz
 sudo docker compose up -d
 ```
 
