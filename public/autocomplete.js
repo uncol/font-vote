@@ -84,9 +84,11 @@ function closeDropdown() {
   activeInput = null;
 }
 
-async function filterAndRenderDropdown(query, inputElement) {
+async function filterAndRenderDropdown(query, inputElement, options = {}) {
+  const { showAll = false } = options;
   if (!dropdownEl) return;
-  if (!query.trim()) {
+  const trimmedQuery = query.trim();
+  if (!showAll && !trimmedQuery) {
     closeDropdown();
     return;
   }
@@ -94,23 +96,26 @@ async function filterAndRenderDropdown(query, inputElement) {
   await ensureIconGroups();
   activeInput = inputElement;
 
-  const lowerQuery = query.toLowerCase();
-  const normalizedQuery = normalizeIconName(query.trim());
+  const lowerQuery = trimmedQuery.toLowerCase();
+  const normalizedQuery = normalizeIconName(trimmedQuery);
   let html = "";
   let visibleCount = 0;
   const seenIcons = new Set();
+  const renderAll = showAll && !trimmedQuery;
 
   iconGroups.forEach(({ group, items }) => {
-    const filtered = items.filter((item) => {
-      const iconText = item.icon.toLowerCase();
-      const normalizedIcon = normalizeIconName(item.icon);
-      const descText = item.description.toLowerCase();
-      return (
-        normalizedIcon.includes(normalizedQuery) ||
-        iconText.includes(lowerQuery) ||
-        descText.includes(lowerQuery)
-      );
-    });
+    const filtered = renderAll
+      ? items
+      : items.filter((item) => {
+          const iconText = item.icon.toLowerCase();
+          const normalizedIcon = normalizeIconName(item.icon);
+          const descText = item.description.toLowerCase();
+          return (
+            normalizedIcon.includes(normalizedQuery) ||
+            iconText.includes(lowerQuery) ||
+            descText.includes(lowerQuery)
+          );
+        });
 
     const uniqueItems = [];
     filtered.forEach((item) => {
@@ -211,9 +216,12 @@ function setupInput(inputElement) {
   });
 
   inputElement.addEventListener("focus", () => {
-    if (inputElement.value.trim()) {
-      filterAndRenderDropdown(inputElement.value, inputElement);
+    const value = inputElement.value.trim();
+    if (value) {
+      filterAndRenderDropdown(value, inputElement);
+      return;
     }
+    filterAndRenderDropdown("", inputElement, { showAll: true });
   });
 
   inputElement.addEventListener("keydown", (event) => {
