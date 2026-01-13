@@ -140,6 +140,16 @@ button {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  transform: none;
+  background: var(--accent);
+}
+
 button:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);

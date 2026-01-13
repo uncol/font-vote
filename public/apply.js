@@ -106,6 +106,7 @@ function renderJournal(items) {
     if (!item.applied) {
       const btn = document.createElement("button");
       btn.textContent = "Apply";
+      btn.disabled = item.icon.replace(/-/g, "_") === item.current_icon.replace(/-/g, "_");
       btn.addEventListener("click", async () => {
         btn.disabled = true;
         try {
