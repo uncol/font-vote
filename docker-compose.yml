@@ -12,7 +12,7 @@ services:
       - ADMIN_ALLOWLIST
     environment:
       - DB_PATH=/data/app.db
-      - BASE_URL=${BASE_URL:-https://font-vote.sova.satel.org}
+      - BASE_URL=${BASE_URL:-https://font-vote.getnoc.com}
       - CORS_ORIGIN=${CORS_ORIGIN:-*}
     restart: unless-stopped
 

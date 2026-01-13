@@ -102,13 +102,27 @@ Server will run on http://localhost:80 (or port specified in PORT env var)
 
 ### Remote with docker
 
-1. Save docker image
+1. Build docker image
 
 ```bash
-docker image save font-vote-app | gzip > font-vote-app.gzip
+docker compose build
 ```
 
-2. Make database backup
+2. Save docker image
+
+```bash
+docker save font-vote-app | gzip > font-vote-app.tar.gz
+```
+
+3. Load and start container on remote host
+
+```bash
+sudo docker rmi font-vote-app:latest
+sudo docker load < ~/images.tar.gz
+sudo docker compose up -d
+```
+
+4. Make database backup into docker container
 
 ```bash
 docker run --rm -v font-vote_db-data:/data -v $(pwd):/backup alpine tar czf /backup/db-backup.tar.gz /data
