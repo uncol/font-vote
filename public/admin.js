@@ -88,7 +88,7 @@ function renderCollection(items) {
     renderIconCell(previewCell, item.icon);
 
     const input = document.createElement("input");
-    input.className = "inline-input";
+    input.className = "inline-input admin-icon-input";
     input.value = item.icon;
     setupIconAutocomplete(input);
 

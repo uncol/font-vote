@@ -204,6 +204,9 @@ button.ghost:hover {
   min-width: 180px;
   padding: 8px 10px;
   flex-grow: 1;
+}
+
+.admin-icon-input {
   width: 100%;
 }
 
