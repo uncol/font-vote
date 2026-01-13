@@ -45,6 +45,20 @@ async function loadCollection() {
   renderCollection(data.items || []);
 }
 
+function renderIconCell(cell, iconName) {
+  cell.innerHTML = "";
+  const iconValue = iconName?.trim();
+  if (!iconValue) return;
+  const previewWrapper = document.createElement("div");
+  previewWrapper.className = "icon-cell";
+  const iconEl = document.createElement("i");
+  const iconClass = iconValue.replace(/_/g, "-");
+  iconEl.className = `gf ${iconClass} gf-24px`;
+  iconEl.style.paddingBottom = "4px";
+  previewWrapper.appendChild(iconEl);
+  cell.appendChild(previewWrapper);
+}
+
 function renderCollection(items) {
   collectionBody.innerHTML = "";
   collectionCount.textContent = `Строк в справочнике: ${items.length}`;
@@ -55,25 +69,22 @@ function renderCollection(items) {
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
     `;
     const previewCell = row.querySelector("td:nth-child(2)");
-    const iconCell = row.querySelector("td:nth-child(3)");
-    const actionCell = row.querySelector("td:nth-child(4)");
+    const proposalCell = row.querySelector("td:nth-child(3)");
+    const iconCell = row.querySelector("td:nth-child(4)");
+    const actionCell = row.querySelector("td:nth-child(5)");
 
-    if (item.icon) {
-      const previewWrapper = document.createElement("div");
-      previewWrapper.className = "icon-cell";
-      const iconEl = document.createElement("i");
-      const iconClass = item.icon.replace(/_/g, "-");
-      iconEl.className = `gf ${iconClass} gf-24px`;
-      iconEl.style.paddingBottom = "4px";
-      previewWrapper.appendChild(iconEl);
-      previewCell.appendChild(previewWrapper);
-    }
+    renderIconCell(previewCell, item.icon);
 
     const input = document.createElement("input");
     input.className = "inline-input";
     input.value = item.icon;
+
+    const updateProposal = () => renderIconCell(proposalCell, input.value);
+    updateProposal();
+    input.addEventListener("input", updateProposal);
 
     const saveBtn = document.createElement("button");
     saveBtn.textContent = "Сохранить";
@@ -158,7 +169,8 @@ function exportTypeScript() {
   const rows = Array.from(collectionBody.querySelectorAll("tr"));
   const items = rows.map(row => {
     const semantic = row.querySelector("td:nth-child(1)").textContent.trim();
-    const icon = row.querySelector("td:nth-child(2) input").value.trim();
+    const iconInput = row.querySelector("td:nth-child(4) input");
+    const icon = iconInput ? iconInput.value.trim() : "";
     return { semantic, icon };
   }).filter(item => item.semantic && item.icon);
 
