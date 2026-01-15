@@ -117,6 +117,7 @@ docker save font-vote-app | gzip > font-vote-app.tar.gz
 3. Load and start container on remote host
 
 ```bash
+sudo docker compose down
 sudo docker rmi font-vote-app:latest
 sudo docker load < ~/font-vote-app.tar.gz
 sudo docker compose up -d

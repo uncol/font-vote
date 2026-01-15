@@ -19,13 +19,17 @@ COPY export ./export
 COPY public/ ./public/
 COPY tsconfig.json ./
 
-# Download gufo-font files from CDN and update styles.css
+# Download gufo-font files and manifest from CDN, update styles.css
 RUN cd public && \
     curl -sSL -o gufo-font.css https://gf.cdn.gufolabs.com/latest/gufo-font.css && \
     FONT_PATH=$(grep -o 'GufoFont[^"\)]*\.woff2' gufo-font.css | head -n 1) && \
     curl -sSL -o GufoFont-Regular.woff2 "https://gf.cdn.gufolabs.com/latest/$FONT_PATH" && \
     sed -i "s|$FONT_PATH|GufoFont-Regular.woff2|g" gufo-font.css && \
-    sed -i 's|https://gf.cdn.gufolabs.com/latest/gufo-font.css|/gufo-font.css|g' styles.css
+    sed -i 's|https://gf.cdn.gufolabs.com/latest/gufo-font.css|/gufo-font.css|g' styles.css && \
+    curl -sSL -o manifest.json https://gf.cdn.gufolabs.com/latest/manifest.json
+
+# Replace manifest route with local version for production
+RUN cp src/routes/manifest.local.ts src/routes/manifest.ts
 
 # Build TypeScript
 RUN npm run build
