@@ -80,12 +80,26 @@ export function createAdminCollection1Router(config: AppConfig) {
     }
 
     const db = getDb();
+    
+    // Получаем текущий icon перед удалением для журнала
+    const current = db.prepare("SELECT icon FROM collection1 WHERE semantic = ?")
+      .get(semantic) as { icon: string } | undefined;
+    
+    if (!current) {
+      return notFound(res, "semantic not found");
+    }
+
     const result = db.prepare("DELETE FROM collection1 WHERE semantic = ?")
       .run(semantic);
     
     if (result.changes === 0) {
       return notFound(res, "semantic not found");
     }
+
+    // Логируем удаление с пометкой в icon
+    db.prepare(
+      "INSERT INTO journal (id, semantic, icon, user, created, applied) VALUES (?, ?, ?, ?, ?, 0)"
+    ).run(randomUUID(), semantic, `[deleted] ${current.icon}`, req.session!.login, new Date().toISOString());
 
     jsonResponse(res, { ok: true });
   });

@@ -1,7 +1,7 @@
-import { badRequest, conflict, forbidden, jsonResponse, normalizeIcon, normalizeSemantic, notFound, readJson, unauthorized } from "../../lib/utils";
+import { isAdmin, parseAllowlist } from "../../lib/admin";
 import { readSessionCookie } from "../../lib/auth";
-import { parseAllowlist, isAdmin } from "../../lib/admin";
 import type { Env } from "../../lib/types";
+import { badRequest, conflict, forbidden, jsonResponse, normalizeIcon, normalizeSemantic, notFound, readJson, unauthorized } from "../../lib/utils";
 
 type Payload = {
   semantic?: string;
@@ -79,10 +79,23 @@ export const onRequestDelete: PagesFunction<Env> = async ({ request, env }) => {
   const semantic = normalizeSemantic(body.semantic);
   if (!semantic) return badRequest("semantic is required");
 
+  // Получаем текущий icon перед удалением для журнала
+  const current = await env.DB.prepare("SELECT icon FROM collection1 WHERE semantic = ?")
+    .bind(semantic)
+    .first<{ icon: string }>();
+  if (!current) return notFound("semantic not found");
+
   const result = await env.DB.prepare("DELETE FROM collection1 WHERE semantic = ?")
     .bind(semantic)
     .run();
   if (!result.success || result.changes === 0) return notFound("semantic not found");
+
+  // Логируем удаление с пометкой в icon
+  await env.DB.prepare(
+    "INSERT INTO journal (id, semantic, icon, user, created, applied) VALUES (?, ?, ?, ?, ?, 0)"
+  )
+    .bind(crypto.randomUUID(), semantic, `[deleted] ${current.icon}`, auth.login, new Date().toISOString())
+    .run();
 
   return jsonResponse({ ok: true });
 };
