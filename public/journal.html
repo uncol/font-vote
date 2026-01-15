@@ -44,6 +44,7 @@
     </section>
 
     <section class="panel">
+      <hr class="line" />
       <div class="controls">
         <div>
           <label for="filterSemantic">Фильтр по semantic</label>
@@ -60,7 +61,12 @@
             <option value="asc">asc</option>
           </select>
         </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="clearJournalFiltersBtn" class="ghost">Сбросить</button>
+        </div>
       </div>
+      <hr class="line" />
       <div class="notice" id="countBadge"></div>
       <table class="table" id="journalTable">
         <thead>

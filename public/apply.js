@@ -4,8 +4,10 @@ const adminGate = document.getElementById("adminGate");
 const applyPanel = document.getElementById("applyPanel");
 
 const journalFilter = document.getElementById("journalFilter");
+const iconFilter = document.getElementById("iconFilter");
 const appliedFilter = document.getElementById("appliedFilter");
 const journalOrder = document.getElementById("journalOrder");
+const clearApplyFiltersBtn = document.getElementById("clearApplyFiltersBtn");
 const journalCount = document.getElementById("journalCount");
 const journalBody = document.querySelector("#journalTable tbody");
 
@@ -42,6 +44,7 @@ async function loadSession() {
 function buildJournalQuery() {
   const params = new URLSearchParams();
   if (journalFilter.value.trim()) params.set("semantic", journalFilter.value.trim());
+  if (iconFilter.value.trim()) params.set("icon", iconFilter.value.trim());
   params.set("order", journalOrder.value);
   return params.toString();
 }
@@ -142,8 +145,16 @@ function debounce(fn, delay) {
 const debouncedJournal = debounce(loadJournal, 300);
 
 journalFilter.addEventListener("input", debouncedJournal);
+iconFilter.addEventListener("input", debouncedJournal);
 appliedFilter.addEventListener("change", loadJournal);
 journalOrder.addEventListener("change", loadJournal);
+clearApplyFiltersBtn.addEventListener("click", () => {
+  journalFilter.value = "";
+  iconFilter.value = "";
+  appliedFilter.value = "all";
+  journalOrder.value = "desc";
+  loadJournal();
+});
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";
 });

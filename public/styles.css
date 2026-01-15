@@ -331,3 +331,9 @@ footer {
     font-size: 26px;
   }
 }
+
+.line {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}

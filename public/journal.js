@@ -6,6 +6,7 @@ const countBadge = document.getElementById("countBadge");
 const filterSemantic = document.getElementById("filterSemantic");
 const filterUser = document.getElementById("filterUser");
 const sortOrder = document.getElementById("sortOrder");
+const clearJournalFiltersBtn = document.getElementById("clearJournalFiltersBtn");
 
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
@@ -72,6 +73,13 @@ const debouncedLoad = debounce(loadJournal, 300);
 
 [filterSemantic, filterUser].forEach((input) => input.addEventListener("input", debouncedLoad));
 sortOrder.addEventListener("change", loadJournal);
+
+clearJournalFiltersBtn.addEventListener("click", () => {
+  filterSemantic.value = "";
+  filterUser.value = "";
+  sortOrder.value = "desc";
+  loadJournal();
+});
 
 loginBtn.addEventListener("click", () => {
   window.location.href = "/api/auth/github";

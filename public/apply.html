@@ -55,10 +55,15 @@
                     админа.
                 </p>
             </div>
+            <hr class="line" />
             <div class="controls">
                 <div>
                     <label for="journalFilter">Фильтр semantic</label>
                     <input id="journalFilter" type="search" placeholder="button.play" />
+                </div>
+                <div>
+                    <label for="iconFilter">Фильтр icon</label>
+                    <input id="iconFilter" type="search" placeholder="icon" />
                 </div>
                 <div>
                     <label for="appliedFilter">Статус</label>
@@ -75,7 +80,12 @@
                         <option value="asc">asc</option>
                     </select>
                 </div>
+                <div>
+                    <label>&nbsp;</label>
+                    <button id="clearApplyFiltersBtn" class="ghost">Сбросить</button>
+                </div>
             </div>
+            <hr class="line" />
             <div class="notice" id="journalCount"></div>
             <table class="table" id="journalTable">
                 <thead>

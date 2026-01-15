@@ -9,6 +9,7 @@ const searchSemantic = document.getElementById("searchSemantic");
 const searchIcon = document.getElementById("searchIcon");
 const sortBy = document.getElementById("sortBy");
 const sortOrder = document.getElementById("sortOrder");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
 const testIcon = document.getElementById("testIcon");
 const testResult = document.getElementById("testResult");
 const {
@@ -150,6 +151,14 @@ const debouncedLoad = debounce(loadCollection, 300);
 
 [searchSemantic, searchIcon].forEach((input) => input.addEventListener("input", debouncedLoad));
 [sortBy, sortOrder].forEach((select) => select.addEventListener("change", loadCollection));
+
+clearSearchBtn.addEventListener("click", () => {
+  searchSemantic.value = "";
+  searchIcon.value = "";
+  sortBy.value = "semantic";
+  sortOrder.value = "asc";
+  loadCollection();
+});
 
 // Setup autocomplete for test icon field
 setupIconAutocomplete(testIcon);
