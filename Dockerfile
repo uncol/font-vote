@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:20-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -41,4 +41,4 @@ RUN mkdir -p /data
 EXPOSE 80
 
 # Run migrations and start server
-CMD npm run migrate && npm start
+CMD ["npm", "start"]
